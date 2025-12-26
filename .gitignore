@@ -1,0 +1,6 @@
+_dist
+.DS_Store
+Thumbs.db
+
+templates/nginx/placeholder.crt
+templates/nginx/placeholder.key

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: __PROJECT__-__ENV__
+data:
+  ENV: __ENV__
+  HOST: __HOST__
+#>for arg in "$@"; do
+#>  $E "$arg: __$arg__"
+#>done
