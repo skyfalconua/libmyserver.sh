@@ -1,0 +1,11 @@
+[Unit]
+Description=__DESCRIPTION__
+
+[Service]
+Type=simple
+WorkingDirectory=__WORKINGDIR__
+ExecStart=__EXECSTART__
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
