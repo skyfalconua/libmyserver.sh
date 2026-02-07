@@ -15,9 +15,9 @@ spec:
     #>if is_enabled "${USE_DJANGO}"; then
       volumeMounts:
         - mountPath: /volumes/static
-          name: __PROJECTNAME_____ENV___static_volume_pvc
+          name: __PROJECTNAME__-__ENV__-static_volume_pvc
         - mountPath: /volumes/media
-          name: __PROJECTNAME_____ENV___media_volume_pvc
+          name: __PROJECTNAME__-__ENV__-media_volume_pvc
     #>fi
 
     #>if is_enabled "${USE_DJANGO}"; then
@@ -34,7 +34,7 @@ spec:
           value: __PROJECTNAME__db
       volumeMounts:
         - mountPath: /bitnami/mariadb
-          name: __PROJECTNAME_____ENV___db_volume_pvc
+          name: __PROJECTNAME__-__ENV__-db_volume_pvc
     #>fi
 
     - image: '__PROJECTNAME__-__ENV__/nginx'
@@ -49,20 +49,20 @@ spec:
       #>if is_enabled "${USE_DJANGO}"; then
       volumeMounts:
         - mountPath: /volumes/media
-          name: __PROJECTNAME_____ENV___media_volume_pvc
+          name: __PROJECTNAME__-__ENV__-media_volume_pvc
         - mountPath: /volumes/static
-          name: __PROJECTNAME_____ENV___static_volume_pvc
+          name: __PROJECTNAME__-__ENV__-static_volume_pvc
       #>fi
 
 #>if is_enabled "${USE_DJANGO}"; then
   volumes:
-    - name: __PROJECTNAME_____ENV___db_volume_pvc
+    - name: __PROJECTNAME__-__ENV__-db_volume_pvc
       persistentVolumeClaim:
-        claimName: __PROJECTNAME_____ENV___db_volume
-    - name: __PROJECTNAME_____ENV___media_volume_pvc
+        claimName: __PROJECTNAME__-__ENV__-db_volume
+    - name: __PROJECTNAME__-__ENV__-media_volume_pvc
       persistentVolumeClaim:
-        claimName: __PROJECTNAME_____ENV___media_volume
-    - name: __PROJECTNAME_____ENV___static_volume_pvc
+        claimName: __PROJECTNAME__-__ENV__-media_volume
+    - name: __PROJECTNAME__-__ENV__-static_volume_pvc
       persistentVolumeClaim:
-        claimName: __PROJECTNAME_____ENV___static_volume
+        claimName: __PROJECTNAME__-__ENV__-static_volume
 #>fi

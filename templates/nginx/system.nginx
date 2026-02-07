@@ -20,8 +20,8 @@ server {
   listen 443 ssl;
 
   __SSL_OPTIONS__
-  ssl_certificate      __CERT_FILE__;
-  ssl_certificate_key  __CERT_KEY__;
+  ssl_certificate      __CERTFILE__;
+  ssl_certificate_key  __KEYFILE__;
 
   location / {
     proxy_pass http://127.0.0.1:__PORT__;

@@ -10,7 +10,10 @@ _copy_cloudflare_certificate() {
 
   if [ ! -f "$crtfile" ] || [ ! -f "$keyfile" ]; then
     echo_warn "Cloudflare origin CA certificate was not found. Obtain it here:"
-    echo_warn "  https://dash.cloudflare.com/?to=/:account/:zone/ssl-tls/client-certificates"
+    echo_warn "  https://dash.cloudflare.com/?to=/:account/:zone/ssl-tls/origin"
+    echo_warn "Then put them to:"
+    echo_warn "  - ./var/certificates/cloudflare.crt"
+    echo_warn "  - ./var/certificates/cloudflare.key"
     exit
   fi
 
@@ -108,7 +111,7 @@ init_nginx_config() {
   echo_step "Create $conffile"
   template__nginx_system_nginx | \
     render_variables HOST PORT SSL_OPTIONS CERTFILE KEYFILE | \
-    save_to "$PROJECTROOT/nginx/nginx-container.conf"
+    save_to "$conffile"
   echo
 
   # -- reload nginx -- -- --

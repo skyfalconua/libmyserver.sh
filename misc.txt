@@ -1,0 +1,3 @@
+- usefull commands
+
+bash build.sh && cp -f _dist/libmyserver.sh ../skyfalconua.github.io/libmyserver.sh
